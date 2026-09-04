@@ -184,14 +184,14 @@ return [
         // Specifies the Bootstrap theme for the sidebar. Available options are
         // 'light' or 'dark'. Setting this to null will disable a specific theme
         // for the sidebar, allowing it to inherit the global layout settings.
-        'bootstrap_theme' => 'dark',
+        'bootstrap_theme' => 'light',
 
         // A list of additional CSS classes applied to the sidebar, typically
         // used to configure its background color and styling. You can use some
         // built-in classes here, such as 'nav-indent' to add indentation to
         // child menu items, or 'nav-compact' to reduce the vertical spacing
         // between menu items.
-        'classes' => ['bg-body-secondary', 'nav-indent', 'shadow'],
+        'classes' => ['bg-body', 'nav-indent', 'shadow'],
 
         // Determines if the sidebar should be collapsed by default when the
         // page loads. This is useful for creating a cleaner interface or

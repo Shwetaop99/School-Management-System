@@ -141,7 +141,7 @@ return [
         'type' => MenuItemType::LINK,
         'label' => 'Dashboard',
         'icon' => 'bi bi-speedometer2',
-        'url' => '/admin/dashboard',
+        'url' => '/dashboard',
     ],
 
 
@@ -174,30 +174,28 @@ return [
         ],
     ],
 
+[
+    'type' => MenuItemType::MENU,
+    'label' => 'Teacher',
+    'icon' => 'bi bi-person-workspace',
+    'submenu' => [
 
-    [
-        'type' => MenuItemType::MENU,
-        'label' => 'Teacher',
-        'icon' => 'bi bi-person-workspace',
-        'submenu' => [
-
-            [
-                'type' => MenuItemType::LINK,
-                'label' => 'All Teachers',
-                'icon' => 'bi bi-people-fill',
-                'url' => '#',
-            ],
-
-            [
-                'type' => MenuItemType::LINK,
-                'label' => 'Add Teacher',
-                'icon' => 'bi bi-person-plus-fill',
-                'url' => '#',
-            ],
-
+        [
+            'type' => MenuItemType::LINK,
+            'label' => 'All Teachers',
+            'icon' => 'bi bi-people-fill',
+            'url' => '/admin/teachers',
         ],
-    ],
 
+        [
+            'type' => MenuItemType::LINK,
+            'label' => 'Add Teacher',
+            'icon' => 'bi bi-person-plus-fill',
+            'url' => '/admin/teachers/create',
+        ],
+
+    ],
+],
 
     /*
     |--------------------------------------------------------------------------
