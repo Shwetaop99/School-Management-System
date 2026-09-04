@@ -564,6 +564,81 @@ body {
    SIDEBAR
 ========================================= */
 
+.app-sidebar {
+    background: #ffffff !important;
+    border-right: 1px solid #e7ebf2 !important;
+    box-shadow: 2px 0 10px rgba(30, 50, 80, 0.04);
+}
+
+/* Sidebar brand */
+.app-sidebar .brand-link {
+    background: #ffffff !important;
+    color: #17213c !important;
+    border-bottom: 1px solid #edf0f5 !important;
+}
+
+.app-sidebar .brand-link .brand-text {
+    color: #17213c !important;
+    font-weight: 700;
+}
+
+
+/* Sidebar menu text */
+.app-sidebar .nav-link {
+    color: #596579 !important;
+    border-radius: 8px !important;
+    margin: 3px 10px !important;
+}
+
+
+/* Sidebar icons */
+.app-sidebar .nav-link i {
+    color: #718096 !important;
+}
+
+
+/* Hover */
+.app-sidebar .nav-link:hover {
+    background: #f0f6ff !important;
+    color: #147cf5 !important;
+}
+
+.app-sidebar .nav-link:hover i {
+    color: #147cf5 !important;
+}
+
+
+/* Active menu */
+.app-sidebar .nav-link.active {
+    background: #147cf5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(20, 124, 245, 0.18);
+}
+
+.app-sidebar .nav-link.active i {
+    color: #ffffff !important;
+}
+
+
+/* Sidebar headers */
+.app-sidebar .nav-header {
+    color: #9aa5b5 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+}
+
+
+/* Submenu */
+.app-sidebar .nav-treeview .nav-link {
+    color: #6d788b !important;
+}
+
+.app-sidebar .nav-treeview .nav-link:hover {
+    background: #f5f8fc !important;
+    color: #147cf5 !important;
+}
+
 
 /* =========================================
    TOP NAVBAR
