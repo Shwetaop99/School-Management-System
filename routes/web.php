@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminTwoFactorController;
+use App\Http\Controllers\AdminTimetableController;
 
 // Admin Login
 Route::get('/admin/login', [AdminAuthController::class, 'showLogin'])
@@ -33,3 +34,20 @@ Route::get('/dashboard', function () {
 // Logout
 Route::post('/admin/logout', [AdminAuthController::class, 'logout'])
     ->name('admin.logout');
+
+
+// Timetable main page
+Route::get('/admin/timetable', [AdminTimetableController::class, 'index'])
+    ->name('admintimetable');
+
+// Add / Edit timetable
+Route::get('/admin/timetable/create', [AdminTimetableController::class, 'create'])
+    ->name('admintimetable.create');
+
+// Save / Update timetable
+Route::post('/admin/timetable', [AdminTimetableController::class, 'store'])
+    ->name('admintimetable.store');
+
+// Download PDF
+Route::get('/admin/timetable/pdf', [AdminTimetableController::class, 'pdf'])
+    ->name('admintimetable.pdf');

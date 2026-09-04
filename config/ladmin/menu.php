@@ -209,7 +209,7 @@ return [
         'type' => MenuItemType::LINK,
         'label' => 'Time Table',
         'icon' => 'bi bi-calendar3',
-        'url' => '#',
+        'url' => 'admin/timetable',
     ],
 
     [
