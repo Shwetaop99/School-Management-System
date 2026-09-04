@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,7 +71,9 @@
         }
 
 
-        /* Decorative top circle */
+        /* =========================================
+           DECORATIVE CIRCLES
+        ========================================= */
 
         .top-circle {
             position: absolute;
@@ -86,8 +89,6 @@
             right: -100px;
         }
 
-
-        /* Decorative bottom wave */
 
         .bottom-circle {
             position: absolute;
@@ -128,16 +129,16 @@
 
 
         /* =========================================
-           ADMIN ICON
+           SCHOOL LOGO
         ========================================= */
 
-        .admin-icon {
-            width: 76px;
-            height: 76px;
+        .admin-logo {
+            width: 96px;
+            height: 96px;
 
             border: 3px solid rgba(255,255,255,0.95);
 
-            border-radius: 17px;
+            border-radius: 20px;
 
             display: flex;
             align-items: center;
@@ -149,7 +150,24 @@
             position: relative;
             z-index: 5;
 
-            font-size: 40px;
+            background: white;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.12);
+        }
+
+
+        .admin-logo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: contain;
+
+            padding: 8px;
+
+            display: block;
         }
 
 
@@ -445,6 +463,7 @@
             display: flex;
 
             justify-content: space-between;
+
             align-items: center;
 
             margin-bottom: 27px;
@@ -600,6 +619,7 @@
         }
 
     </style>
+
 </head>
 
 
@@ -614,6 +634,7 @@
 
     <div class="left-panel">
 
+
         <!-- Decorative elements -->
 
         <div class="dots"></div>
@@ -623,10 +644,17 @@
         <div class="bottom-circle"></div>
 
 
-        <!-- Admin icon -->
+        <!-- ==================================================
+             SCHOOL LOGO
+        =================================================== -->
 
-        <div class="admin-icon">
-            🏫
+        <div class="admin-logo">
+
+            <img
+                src="{{ asset('images/gurukullogo.png') }}"
+                alt="Gurukul Vidyalaya"
+            >
+
         </div>
 
 
@@ -640,8 +668,11 @@
         <!-- Description -->
 
         <p class="description">
+
             Secure login for authorized school administrators only.
+
             Manage your entire school from one powerful dashboard.
+
         </p>
 
 
@@ -696,6 +727,7 @@
                     <circle cx="75" cy="170" r="28"/>
                     <circle cx="105" cy="155" r="40"/>
                     <circle cx="140" cy="170" r="27"/>
+
                     <rect
                         x="55"
                         y="170"
@@ -707,6 +739,7 @@
                     <circle cx="475" cy="130" r="25"/>
                     <circle cx="505" cy="115" r="38"/>
                     <circle cx="540" cy="130" r="25"/>
+
                     <rect
                         x="455"
                         y="130"
@@ -776,7 +809,7 @@
                 />
 
 
-                <!-- Clock circle -->
+                <!-- Clock -->
 
                 <circle
                     cx="300"
@@ -786,6 +819,7 @@
                     stroke="#1769ff"
                     stroke-width="5"
                 />
+
 
                 <!-- Clock hands -->
 
@@ -913,7 +947,10 @@
 
                 <!-- Trees -->
 
-                <g fill="#1769ff" opacity="0.65">
+                <g
+                    fill="#1769ff"
+                    opacity="0.65"
+                >
 
                     <!-- Left tree -->
 
@@ -1095,8 +1132,11 @@
                 type="submit"
                 class="login-button"
             >
+
                 Sign In
+
                 <span>→</span>
+
             </button>
 
         </form>
@@ -1142,5 +1182,7 @@
 
 </script>
 
+
 </body>
+
 </html>

@@ -9,3 +9,25 @@
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
 }
+
+/* Admin sidebar logo */
+.brand-link {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 10px;
+    overflow: hidden;
+}
+
+.brand-link .brand-image {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+.brand-link .brand-text {
+    font-size: 18px !important;
+    white-space: nowrap !important;
+}

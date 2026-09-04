@@ -85,16 +85,16 @@ return [
     'logo' => [
         // The URL path to the logo image file. Can be a relative path to the
         // public directory or an absolute URL.
-        'image' => '/vendor/ladmin/img/LaradminLTE.png',
+        'image' => '/images/gurukullogo.png',
 
         // The alternative text for the logo image, used for accessibility.
-        'image_alt' => 'School Management',
+        'image_alt' => 'Gurukul Vidyalaya',
 
         // The CSS classes applied to style the logo image.
-        'image_classes' => ['rounded-circle', 'shadow'],
+        'image_classes' => ['shadow'],
 
         // The text displayed alongside the logo.
-        'text' => 'LaradminLTE',
+        'text' => 'Gurukul Vidyalaya',
 
         // The CSS classes applied to style the logo text.
         'text_classes' => ['fw-bold'],
