@@ -1619,69 +1619,68 @@ body {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-
 document.addEventListener('DOMContentLoaded', function () {
 
     const genderChart = document.getElementById('studentGenderChart');
 
-    if (genderChart) {
+    if (!genderChart) {
+        return;
+    }
 
-        new Chart(genderChart, {
+    new Chart(genderChart, {
 
-            type: 'doughnut',
+        type: 'doughnut',
 
-            data: {
+        data: {
 
-                labels: [
-                    'Male',
-                    'Female'
+            labels: [
+                'Male',
+                'Female'
+            ],
+
+            datasets: [{
+
+                data: [
+                    {{ $maleStudents }},
+                    {{ $femaleStudents }}
                 ],
 
-                datasets: [{
+                backgroundColor: [
+                    '#0d6efd',
+                    '#0dcaf0'
+                ],
 
-                    data: [
-                        85,
-                        65
-                    ],
+                borderWidth: 0
 
-                    backgroundColor: [
-                        '#0d6efd',
-                        '#0dcaf0'
-                    ],
+            }]
 
-                    borderWidth: 0
+        },
 
-                }]
+        options: {
 
-            },
+            responsive: true,
 
-            options: {
+            maintainAspectRatio: false,
 
-                responsive: true,
+            cutout: '70%',
 
-                maintainAspectRatio: false,
+            plugins: {
 
-                cutout: '70%',
+                legend: {
+                    display: false
+                },
 
-                plugins: {
+                tooltip: {
 
-                    legend: {
-                        display: false
-                    },
+                    callbacks: {
 
-                    tooltip: {
+                        label: function(context) {
 
-                        callbacks: {
-
-                            label: function(context) {
-
-                                return ' ' +
-                                    context.label +
-                                    ': ' +
-                                    context.raw +
-                                    ' students';
-
-                            }
+                            return ' '
+                                + context.label
+                                + ': '
+                                + context.raw
+                                + ' students';
 
                         }
 
@@ -1691,12 +1690,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
             }
 
-        });
+        }
 
-    }
+    });
 
 });
-
 </script>
 
 
@@ -1790,52 +1788,102 @@ document.addEventListener('DOMContentLoaded', function () {
     <div class="row mt-4">
 
         {{-- Student Statistics --}}
-        <div class="col-lg-5 mb-4">
-            <div class="school-dashboard-card h-100">
+<div class="col-lg-5 mb-4">
 
-                <div class="dashboard-card-header">
-                    <div>
-                        <h3>Student Statistics</h3>
-                        <p>Gender-wise student distribution</p>
+    <div class="school-dashboard-card h-100">
+
+        <div class="dashboard-card-header">
+
+            <div>
+                <h3>Student Statistics</h3>
+                <p>Gender-wise student distribution</p>
+            </div>
+
+            <span class="dashboard-badge blue-badge">
+                Total: {{ $totalStudents ?? 0 }}
+            </span>
+
+        </div>
+
+
+        <div class="dashboard-card-body">
+
+            <div class="row align-items-center">
+
+                <div class="col-md-7">
+
+                    <div class="student-chart-wrap">
+                        <canvas id="studentGenderChart"></canvas>
                     </div>
 
-                    <span class="dashboard-badge blue-badge">Total: 150</span>
                 </div>
 
-                <div class="dashboard-card-body">
-                    <div class="row align-items-center">
 
-                        <div class="col-md-7">
-                            <div class="student-chart-wrap">
-                                <canvas id="studentGenderChart"></canvas>
-                            </div>
+                <div class="col-md-5">
+
+                    @php
+                        $genderTotal = $maleStudents + $femaleStudents;
+
+                        $malePercentage = $genderTotal > 0
+                            ? round(($maleStudents / $genderTotal) * 100, 1)
+                            : 0;
+
+                        $femalePercentage = $genderTotal > 0
+                            ? round(($femaleStudents / $genderTotal) * 100, 1)
+                            : 0;
+                    @endphp
+
+
+                    <div class="student-stat-item">
+
+                        <div class="student-stat-label">
+
+                            <span class="stat-dot blue-dot"></span>
+
+                            <span>Male</span>
+
                         </div>
 
-                        <div class="col-md-5">
-                            <div class="student-stat-item">
-                                <div class="student-stat-label">
-                                    <span class="stat-dot blue-dot"></span>
-                                    <span>Male</span>
-                                </div>
-                                <strong>85</strong>
-                                <small>56.7%</small>
-                            </div>
+                        <strong>
+                            {{ $maleStudents }}
+                        </strong>
 
-                            <div class="student-stat-item">
-                                <div class="student-stat-label">
-                                    <span class="stat-dot cyan-dot"></span>
-                                    <span>Female</span>
-                                </div>
-                                <strong>65</strong>
-                                <small>43.3%</small>
-                            </div>
-                        </div>
+                        <small>
+                            {{ $malePercentage }}%
+                        </small>
 
                     </div>
+
+
+                    <div class="student-stat-item">
+
+                        <div class="student-stat-label">
+
+                            <span class="stat-dot cyan-dot"></span>
+
+                            <span>Female</span>
+
+                        </div>
+
+                        <strong>
+                            {{ $femaleStudents }}
+                        </strong>
+
+                        <small>
+                            {{ $femalePercentage }}%
+                        </small>
+
+                    </div>
+
                 </div>
 
             </div>
+
         </div>
+
+    </div>
+
+</div>
 
 
         {{-- School Calendar --}}

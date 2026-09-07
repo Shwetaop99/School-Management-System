@@ -1,0 +1,171 @@
+/* =========================================
+   ADMIN LAYOUT
+========================================= */
+
+html,
+body {
+    background: #f6f8fb;
+    color: #17213c;
+}
+
+
+/* =========================================
+   SIDEBAR
+========================================= */
+
+.app-sidebar {
+    background: #ffffff !important;
+    border-right: 1px solid #e7ebf2 !important;
+    box-shadow: 2px 0 10px rgba(30, 50, 80, 0.04);
+}
+
+/* Sidebar brand */
+
+.app-sidebar .brand-link {
+    background: #ffffff !important;
+    color: #17213c !important;
+    border-bottom: 1px solid #edf0f5 !important;
+}
+
+.app-sidebar .brand-link .brand-text {
+    color: #17213c !important;
+    font-weight: 700;
+}
+
+
+/* Sidebar menu */
+
+.app-sidebar .nav-link {
+    color: #596579 !important;
+    border-radius: 8px !important;
+    margin: 3px 10px !important;
+}
+
+
+/* Sidebar icons */
+
+.app-sidebar .nav-link i {
+    color: #718096 !important;
+}
+
+
+/* Hover */
+
+.app-sidebar .nav-link:hover {
+    background: #f0f6ff !important;
+    color: #147cf5 !important;
+}
+
+.app-sidebar .nav-link:hover i {
+    color: #147cf5 !important;
+}
+
+
+/* Active menu */
+
+.app-sidebar .nav-link.active {
+    background: #147cf5 !important;
+    color: #ffffff !important;
+    box-shadow: 0 4px 10px rgba(20, 124, 245, 0.18);
+}
+
+.app-sidebar .nav-link.active i {
+    color: #ffffff !important;
+}
+
+
+/* Sidebar headers */
+
+.app-sidebar .nav-header {
+    color: #9aa5b5 !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.5px;
+}
+
+
+/* Submenu */
+
+.app-sidebar .nav-treeview .nav-link {
+    color: #6d788b !important;
+}
+
+.app-sidebar .nav-treeview .nav-link:hover {
+    background: #f5f8fc !important;
+    color: #147cf5 !important;
+}
+
+
+/* =========================================
+   TOP NAVBAR
+========================================= */
+
+.app-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #e7ebf2 !important;
+    box-shadow: 0 2px 8px rgba(30, 50, 80, 0.04);
+}
+
+.app-header .nav-link {
+    color: #536174 !important;
+}
+
+.app-header .nav-link:hover {
+    color: #0f2a5f !important;
+}
+
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.app-main,
+.app-content {
+    background: #f6f8fb !important;
+}
+
+
+/* =========================================
+   BREADCRUMB
+========================================= */
+
+.breadcrumb {
+    background: transparent !important;
+}
+
+.breadcrumb-item {
+    color: #7b8496 !important;
+}
+
+.breadcrumb-item.active {
+    color: #17213c !important;
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.app-sidebar::-webkit-scrollbar,
+.app-main::-webkit-scrollbar {
+    width: 6px;
+}
+
+.app-sidebar::-webkit-scrollbar-thumb,
+.app-main::-webkit-scrollbar-thumb {
+    background: #d8dee8;
+    border-radius: 10px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .app-sidebar {
+        box-shadow: 4px 0 15px rgba(0, 0, 0, 0.08);
+    }
+
+}
