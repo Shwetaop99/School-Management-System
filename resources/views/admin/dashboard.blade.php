@@ -1,4 +1,6 @@
-<x-ladmin-panel title="Dashboard">
+@extends('layouts.admin-layout')
+
+@section('contentHeader')
 
     {{-- =========================
          DASHBOARD STYLES
@@ -1782,7 +1784,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     {{-- =========================
-         STUDENT STATISTICS + CALENDAR
+        STUDENT STATISTICS + CALENDAR
     ========================== --}}
 
     <div class="row mt-4">
@@ -2272,4 +2274,4 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
 
 
-</x-ladmin-panel>
+@endsection
