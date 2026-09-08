@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminAuthController;
 use App\Http\Controllers\AdminTwoFactorController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ClassTeacherAssignmentController;
+use App\Http\Controllers\TeacherAttendanceController;
+use App\Http\Controllers\SchoolSettingController;
 
 // =====================================================
 // ADMIN LOGIN
@@ -50,11 +52,17 @@ Route::post('/admin/logout', [AdminAuthController::class, 'logout'])
 // =====================================================
 // TEACHER MANAGEMENT + CLASS TEACHER ASSIGNMENT
 // =====================================================
+// =====================================================
+// TEACHER MANAGEMENT + CLASS TEACHER ASSIGNMENT
+// =====================================================
 
 Route::prefix('admin')
     ->middleware(['auth:admin', 'admin.2fa'])
     ->group(function () {
 
+
+    Route::get('/teachers/{teacher}/qr', [TeacherController::class, 'qr'])
+    ->name('admin.teachers.qr');
         // =================================================
         // TEACHER MANAGEMENT
         // =================================================
@@ -71,6 +79,33 @@ Route::prefix('admin')
         Route::post('/teachers', [TeacherController::class, 'store'])
             ->name('admin.teachers.store');
 
+
+        // =================================================
+        // TEACHER ATTENDANCE
+        // IMPORTANT: MUST COME BEFORE /teachers/{teacher}
+        // =================================================
+
+        // Attendance Page
+        Route::get('/teachers/attendance', [TeacherAttendanceController::class, 'index'])
+            ->name('admin.teachers.attendance');
+
+        // Save Attendance
+        Route::post('/teachers/attendance', [TeacherAttendanceController::class, 'store'])
+            ->name('admin.teachers.attendance.store');
+
+
+        // =================================================
+        // VIEW / EDIT / DELETE TEACHER
+        // =================================================
+
+
+        // School Settings
+Route::get('/settings', [SchoolSettingController::class, 'index'])
+    ->name('admin.settings');
+
+Route::put('/settings', [SchoolSettingController::class, 'update'])
+    ->name('admin.settings.update');
+    
         // View Teacher
         Route::get('/teachers/{teacher}', [TeacherController::class, 'show'])
             ->name('admin.teachers.show');
@@ -112,5 +147,10 @@ Route::prefix('admin')
             [ClassTeacherAssignmentController::class, 'destroy']
         )->name('admin.class-teacher-assignments.destroy');
 
+        Route::post('/teachers/attendance/scan', [TeacherAttendanceController::class, 'scan'])
+    ->name('admin.teachers.attendance.scan');
+
+    
     });
 
+    

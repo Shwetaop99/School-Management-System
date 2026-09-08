@@ -1412,7 +1412,12 @@ body {
 
     outline-offset: 2px;
 }
-
+.teacher-action.qr:hover {
+    border-color: #b8e8f3;
+    background: var(--teacher-cyan-light);
+    color: var(--teacher-accent);
+    box-shadow: 0 6px 13px rgba(0, 184, 217, .13);
+}
 
 /* =========================================================
    RESPONSIVE
@@ -1575,6 +1580,7 @@ body {
 @endphp
 
 
+
 <div class="teacher-page">
 
     {{-- =====================================================
@@ -1595,15 +1601,32 @@ body {
 
         </div>
 
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
 
-        <a
-            href="{{ route('admin.teachers.create') }}"
-            class="teacher-add-btn"
-        >
-            <i class="bi bi-plus-lg"></i>
+    {{-- ADD TEACHER --}}
 
-            Add Teacher
-        </a>
+    <a
+        href="{{ route('admin.teachers.create') }}"
+        class="teacher-add-btn"
+    >
+        <i class="bi bi-plus-lg"></i>
+        Add Teacher
+    </a>
+
+
+    {{-- VIEW ATTENDANCE --}}
+
+    <a
+        href="{{ route('admin.teachers.attendance') }}"
+        class="teacher-add-btn"
+    >
+        <i class="bi bi-calendar-check"></i>
+        View Attendance
+    </a>
+    
+
+</div>
+
 
     </div>
 
@@ -2049,6 +2072,16 @@ body {
                                             <i class="bi bi-eye"></i>
 
                                         </a>
+
+                                        {{-- QR ATTENDANCE --}}
+<a
+    href="{{ route('admin.teachers.qr', $teacher) }}"
+    class="teacher-action qr"
+    title="QR Attendance"
+    aria-label="QR Attendance"
+>
+    <i class="bi bi-qr-code"></i>
+</a>
 
 
                                         {{-- EDIT --}}

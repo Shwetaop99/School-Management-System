@@ -1,3 +1,4 @@
+
 <x-ladmin-panel title="Class Teacher Assignments">
 
     <style>
@@ -170,6 +171,7 @@
         .class-assignment-page {
             min-height: calc(100vh - 120px);
             padding: 22px 0 40px;
+
             background:
                 radial-gradient(
                     circle at top right,
@@ -195,16 +197,21 @@
         .assignment-title {
             position: relative;
             padding-left: 15px;
+            flex: 1;
         }
 
         .assignment-title::before {
             content: "";
+
             position: absolute;
             left: 0;
             top: 4px;
             bottom: 4px;
+
             width: 4px;
+
             border-radius: 10px;
+
             background:
                 linear-gradient(
                     180deg,
@@ -215,21 +222,40 @@
 
         .assignment-title h2 {
             margin: 0;
+
             color: var(--cta-text);
+
             font-size: 28px;
             font-weight: 750;
+
             letter-spacing: -.5px;
         }
 
         .assignment-title p {
             margin: 7px 0 0;
+
             color: var(--cta-muted);
+
             font-size: 14px;
         }
 
 
         /* =========================================================
-           ADD BUTTON
+           HEADER ACTION BUTTONS
+        ========================================================= */
+
+        .assignment-actions {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* =========================================================
+           ASSIGN CLASS TEACHER BUTTON
         ========================================================= */
 
         .add-assignment-btn {
@@ -255,7 +281,10 @@
 
             font-size: 13px;
             font-weight: 700;
+
             text-decoration: none;
+
+            white-space: nowrap;
 
             box-shadow:
                 0 7px 18px rgba(20, 124, 245, .20);
@@ -284,6 +313,67 @@
 
         .add-assignment-btn i {
             font-size: 15px;
+        }
+
+
+        /* =========================================================
+           BACK TO TEACHERS BUTTON
+        ========================================================= */
+
+        .teacher-back-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            min-height: 45px;
+            padding: 10px 16px;
+
+            border: 1px solid #dce3ed;
+            border-radius: 11px;
+
+            background: #ffffff;
+
+            color: #596579 !important;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+            box-shadow:
+                0 5px 14px rgba(25, 40, 70, .05);
+
+            transition:
+                transform .2s ease,
+                color .2s ease,
+                border-color .2s ease,
+                background .2s ease,
+                box-shadow .2s ease;
+        }
+
+        .teacher-back-btn i {
+            font-size: 15px;
+            transition: transform .2s ease;
+        }
+
+        .teacher-back-btn:hover {
+            background: var(--cta-blue-light);
+
+            border-color: #cfe2ff;
+
+            color: var(--cta-blue) !important;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 9px 20px rgba(20, 124, 245, .10);
+        }
+
+        .teacher-back-btn:hover i {
+            transform: translateX(-3px);
         }
 
 
@@ -369,6 +459,7 @@
             content: "";
 
             position: absolute;
+
             top: 0;
             left: 0;
             right: 0;
@@ -844,6 +935,10 @@
             .assignment-header {
                 align-items: flex-start;
             }
+
+            .assignment-actions {
+                flex-wrap: wrap;
+            }
         }
 
 
@@ -862,7 +957,15 @@
                 font-size: 24px;
             }
 
-            .add-assignment-btn {
+            .assignment-actions {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .add-assignment-btn,
+            .teacher-back-btn {
                 width: 100%;
             }
 
@@ -932,16 +1035,30 @@
             </div>
 
 
-            <a
-                href="{{ route('admin.class-teacher-assignments.create') }}"
-                class="add-assignment-btn"
-            >
+            {{-- =================================================
+                 HEADER ACTIONS
+            ================================================== --}}
 
-                <i class="bi bi-person-plus-fill"></i>
+            <div class="assignment-actions">
 
-                Assign Class Teacher
+                <a
+                    href="{{ route('admin.class-teacher-assignments.create') }}"
+                    class="add-assignment-btn"
+                >
+                    <i class="bi bi-person-plus-fill"></i>
+                    Assign Class Teacher
+                </a>
 
-            </a>
+
+                <a
+                    href="{{ route('admin.teachers.index') }}"
+                    class="teacher-back-btn"
+                >
+                    <i class="bi bi-arrow-left"></i>
+                    Back to Teachers
+                </a>
+
+            </div>
 
         </div>
 
@@ -1042,9 +1159,7 @@
 
                                 <tr>
 
-                                    {{-- =================================
-                                         TEACHER
-                                    ================================== --}}
+                                    {{-- TEACHER --}}
 
                                     <td>
 
@@ -1061,7 +1176,6 @@
                                                 ) }}
 
                                             </div>
-
 
                                             <div class="teacher-details">
 
@@ -1086,9 +1200,7 @@
                                     </td>
 
 
-                                    {{-- =================================
-                                         CLASS
-                                    ================================== --}}
+                                    {{-- CLASS --}}
 
                                     <td>
 
@@ -1102,9 +1214,7 @@
                                     </td>
 
 
-                                    {{-- =================================
-                                         SECTION
-                                    ================================== --}}
+                                    {{-- SECTION --}}
 
                                     <td>
 
@@ -1117,9 +1227,7 @@
                                     </td>
 
 
-                                    {{-- =================================
-                                         ACADEMIC YEAR
-                                    ================================== --}}
+                                    {{-- ACADEMIC YEAR --}}
 
                                     <td>
 
@@ -1132,9 +1240,7 @@
                                     </td>
 
 
-                                    {{-- =================================
-                                         STATUS
-                                    ================================== --}}
+                                    {{-- STATUS --}}
 
                                     <td>
 
@@ -1176,9 +1282,7 @@
                                     </td>
 
 
-                                    {{-- =================================
-                                         DELETE
-                                    ================================== --}}
+                                    {{-- DELETE --}}
 
                                     <td>
 
@@ -1197,7 +1301,6 @@
                                             @csrf
 
                                             @method('DELETE')
-
 
                                             <button
                                                 type="submit"
@@ -1239,11 +1342,9 @@
 
                     </div>
 
-
                     <h5>
                         No Class Teacher Assignments
                     </h5>
-
 
                     <p>
                         No teachers have been assigned to a class yet.
@@ -1258,3 +1359,4 @@
     </div>
 
 </x-ladmin-panel>
+

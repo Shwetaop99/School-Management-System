@@ -384,4 +384,9 @@ class TeacherController extends Controller
             ->route('admin.teachers.index')
             ->with('success', 'Teacher deleted successfully.');
     }
+
+public function qr(Teacher $teacher)
+{
+    return view('admin.teachers.qr', compact('teacher'));
 }
+    }
